@@ -1,8 +1,9 @@
----
+import { Image } from 'astro:assets';
+import aurelie from '../assets/aurelie.jpg';
 ---
 <section id="accueil" class="hero">
     <div class="hero-background">
-        <img src="/aurelie.jpg" alt="Aurélie Magontier" class="hero-image">
+        <Image src={aurelie} alt="Aurélie Magontier" class="hero-image" />
         <div class="hero-overlay"></div>
     </div>
     <div class="magazine-cover">

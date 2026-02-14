@@ -1,4 +1,6 @@
----
+import { Image } from 'astro:assets';
+import profil3 from '../assets/profil3.jpeg';
+import profil2 from '../assets/profil2.jpeg';
 ---
 <section id="presentation" class="presentation">
   <div class="container">
@@ -7,8 +9,8 @@
     <div class="colonne-gauche">
       <div class="presentation-image">
        <div class="profile-picture">
-            <img src="/Images/profil3.jpeg" class="profile-img-default" alt="">
-            <img src="/Images/profil2.jpeg" class="profile-img-hover" alt="">
+            <Image src={profil3} class="profile-img-default" alt="Aurélie Magontier" />
+            <Image src={profil2} class="profile-img-hover" alt="Aurélie Magontier" />
         </div>
       </div>
     </div>
