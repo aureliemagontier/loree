@@ -1,0 +1,43 @@
+---
+import { ContactModel } from '../models/ContactModel';
+
+const contactModel = new ContactModel();
+const details = contactModel.getDetails();
+---
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-title">Nous Contacter</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>{details.email}</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h4>Téléphone</h4>
+                        <p>{details.phone}</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <div>
+                        <h4>Réseaux Sociaux</h4>
+                        <p>@loreedesign</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Votre nom" required>
+                <input type="email" placeholder="Votre email" required>
+                <textarea placeholder="Votre message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</section>

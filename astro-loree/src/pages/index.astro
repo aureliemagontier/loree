@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import NavigationControls from '../components/NavigationControls.astro';
+import Hero from '../components/Hero.astro';
+import Presentation from '../components/Presentation.astro';
+import Services from '../components/Services.astro';
+import Pricing from '../components/Pricing.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="L'Orée - Livret Interactif">
+	<Navbar />
+	<NavigationControls />
+	
+	<!-- Main Scroll Container -->
+     <!-- The body is the scroll container in CSS, so these sections just sit in the body flow -->
+	<Hero />
+	<Presentation />
+	<Services />
+    <Pricing />
+    <Contact />
+    <Footer /> 
+</Layout>
+
+<script>
+    import { NavigationController } from '../scripts/NavigationController';
+
+    document.addEventListener('DOMContentLoaded', () => {
+         // The original script didn't include footer in navigation but we might want to snap to it.
+         // Let's stick to the main sections first.
+        const sectionIds = ['accueil', 'presentation', 'services', 'tarifs', 'contact'];
+        new NavigationController(sectionIds);
+    });
+</script>
+
+<style is:global>
+    /* Ensure Footer snaps and takes full screen if consistent with design */
+    .footer {
+         scroll-snap-align: start;
+         scroll-snap-stop: always;
+         min-width: 100vw;
+         min-height: 100vh;
+         display: flex; 
+         align-items: center;
+         justify-content: center;
+         flex-shrink: 0;
+         margin: 0;
+    }
+</style>

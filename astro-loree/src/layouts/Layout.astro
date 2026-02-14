@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="L'Orée - Web & Design" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+		
+		<style>
+			/* Override body if needed specifically for layout structure */
+			body {
+				/* Maintain the horizontal scroll interaction */
+			}
+		</style>
+	</body>
+</html>

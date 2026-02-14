@@ -1,0 +1,52 @@
+---
+import { PricingModel } from '../models/PricingModel';
+
+const pricingModel = new PricingModel();
+const plans = pricingModel.getAll();
+---
+
+<section id="tarifs" class="tarifs">
+    <div class="container">
+        <h2 class="section-title">Nos Packs</h2>
+        <p class="section-subtitle" style="text-align: center; margin-bottom: 40px; margin-top: -30px; color: var(--text-light);">Choisissez le pack qui correspond à vos besoins</p>
+        <div class="pricing-grid">
+            {plans.map(plan => (
+                <div class={`pricing-card ${plan.isFeatured ? 'featured' : ''}`}>
+                    {plan.isFeatured && <div class="badge">POPULAIRE</div>}
+                    <div class="pricing-header">
+                        <h3>{plan.name}</h3>
+                        <p class="price">{plan.price}<span>{plan.frequency}</span></p>
+                    </div>
+                    <ul class="features-list">
+                        {plan.features.map(feature => (
+                            <li>{feature.included ? '✓' : '✗'} {feature.text}</li>
+                        ))}
+                    </ul>
+                    <button class={`pricing-button ${plan.buttonStyle}`}>{plan.buttonText}</button>
+                </div>
+            ))}
+        </div>
+
+        <div class="faq-section">
+            <h3>Questions Fréquentes</h3>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Puis-je combiner les packs ?</h4>
+                    <p>Absolument ! Formules sur mesure selon vos besoins.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Consultation gratuite ?</h4>
+                    <p>Oui ! Premier rendez-vous pour comprendre votre projet.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Délais ?</h4>
+                    <p>2 à 8 semaines selon le pack et la complexité.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Frais cachés ?</h4>
+                    <p>Non, tarifs transparents et clairs dès le départ.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+---
+import { NavigationModel } from '../models/NavigationModel';
+
+const navModel = new NavigationModel();
+const navItems = navModel.getItems();
+---
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">L'ORÉE</div>
+        <div class="nav-menu">
+            {navItems.map(item => (
+                <a href={item.href} class={`nav-link ${item.isActive ? 'active' : ''}`}>{item.label}</a>
+            ))}
+        </div>
+    </div>
+</nav>

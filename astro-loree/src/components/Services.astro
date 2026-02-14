@@ -1,0 +1,48 @@
+---
+import { ServiceModel } from '../models/ServiceModel';
+
+const serviceModel = new ServiceModel();
+/* The original design has a specific grid layout, we will adapt the model data to it or keep hardcoded parts if they are unique */
+/* Actually, the original HTML has specific classes like top-left, top-right which suggests a custom grid. */
+/* We can use the model to populate content but sticky structurally to the CSS requirements. */
+---
+
+<section id="services" class="entreprise">
+  <div class="container">
+    <h2 class="section-title">Nos Services</h2>
+
+    <div class="philosophie-grid">
+
+      <!-- Ligne du haut -->
+      <div class="company-card top-left reveal">
+        <h3>Création graphique</h3>
+        <p>Stratégie de communication adaptée à votre identité et vos objectifs pour raconter votre histoire avec authenticité.</p>
+      </div>
+
+      <div class="company-card top-right reveal">
+        <h3>Création de Site Web</h3>
+        <p>Sites web modernes et responsifs, conçus pour refléter votre univers et convertir vos visiteurs en clients.</p>
+      </div>
+
+      <!-- Bloc central -->
+      <div class="company-story center reveal">
+        <h3>Ma Philosophie</h3>
+        <p>
+          Je crois que chaque entreprise porte une histoire unique. Mon rôle est de vous aider à la transmettre avec clarté, authenticité et élégance. J’accompagne les petites entreprises et les artisans pour leur offrir la visibilité qu’ils méritent.
+        </p>
+      </div>
+
+      <!-- Ligne du bas -->
+      <div class="company-card bottom-left reveal">
+        <h3>Community Manager</h3>
+        <p>Gestion de vos réseaux sociaux avec contenu authentique qui engage et fidélise votre communauté.</p>
+      </div>
+
+      <div class="company-card bottom-right reveal">
+        <h3>Identité Visuelle</h3>
+        <p>Création d'une identité visuelle cohérente et distinctive : logo, charte graphique, branding complet.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
