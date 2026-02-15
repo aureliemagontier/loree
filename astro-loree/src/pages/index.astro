@@ -8,44 +8,84 @@ import Services from '../components/Services.astro';
 import Pricing from '../components/Pricing.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import Book from '../components/Book.astro';
 ---
 
 <Layout title="L'Orée - Livret Interactif">
+    <!-- Navbar remains outside the book -->
 	<Navbar />
+    <!-- Navigation controls will need to communicate with the book instance -->
 	<NavigationControls />
 	
-	<!-- Main Scroll Container -->
-     <!-- The body is the scroll container in CSS, so these sections just sit in the body flow -->
-	<Hero />
-	<Presentation />
-	<Services />
-    <Pricing />
-    <Contact />
-    <Footer /> 
+    <Book>
+        <!-- Page 1: Cover / Hero -->
+        <div class="page" data-density="hard">
+            <div class="page-content">
+                <Hero />
+            </div>
+        </div>
+
+        <!-- Page 2: Intro / Presentation -->
+        <div class="page">
+             <div class="page-content">
+                <Presentation />
+             </div>
+        </div>
+
+        <!-- Page 3: Services -->
+        <div class="page">
+            <div class="page-content">
+                <Services />
+            </div>
+        </div>
+
+        <!-- Page 4: Pricing -->
+        <div class="page">
+            <div class="page-content">
+                <Pricing />
+            </div>
+        </div>
+
+        <!-- Page 5: Contact -->
+        <div class="page">
+             <div class="page-content">
+                <Contact />
+             </div>
+        </div>
+
+        <!-- Page 6: Back Cover / Footer -->
+        <div class="page" data-density="hard">
+            <div class="page-content">
+                <Footer />
+            </div>
+        </div>
+    </Book>
 </Layout>
 
 <script>
-    import { NavigationController } from '../scripts/NavigationController';
-
-    document.addEventListener('DOMContentLoaded', () => {
-         // The original script didn't include footer in navigation but we might want to snap to it.
-         // Let's stick to the main sections first.
-        const sectionIds = ['accueil', 'presentation', 'services', 'tarifs', 'contact'];
-        new NavigationController(sectionIds);
-    });
+    // Navigation logic will be handled within Book.astro and NavigationControls.astro
+    // We can remove the old scrolling logic here
 </script>
 
 <style is:global>
-    /* Ensure Footer snaps and takes full screen if consistent with design */
-    .footer {
-         scroll-snap-align: start;
-         scroll-snap-stop: always;
-         min-width: 100vw;
-         min-height: 100vh;
-         display: flex; 
-         align-items: center;
-         justify-content: center;
-         flex-shrink: 0;
-         margin: 0;
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent native scroll */
+        background-color: #2a2a2a; /* Dark background for contrast */
+    }
+
+    .page {
+        padding: 20px;
+        background-color: white;
+        overflow: hidden;
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.1); /* Inner shadow for depth */
+        border-right: 1px solid #eee;
+    }
+
+    .page-content {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto; /* Allow scrolling content within a page if needed */
     }
 </style>

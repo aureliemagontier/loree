@@ -19,28 +19,18 @@
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: #fff;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    background-color: var(--dark-bg);
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 /* ===== Navigation ===== */
@@ -152,15 +142,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 20px;
     color: white;
-    min-height: 100vh;
-    min-width: 100vw;
+    width: 100%;
+    height: 100%;
+    /* Fit to page */
     overflow: hidden;
     position: relative;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    flex-shrink: 0;
+    /* scroll-snap removed */
 }
 
 .hero-background {
@@ -413,16 +402,14 @@ body {
 }
 
 .presentation {
-    min-height: 100vh;
-    min-width: 100vw;
-    padding: 100px 20px 60px 20px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
     background: var(--light-bg);
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    flex-shrink: 0;
+    /* scroll-snap removed */
 }
 
 .presentation-content h3 {
@@ -587,11 +574,25 @@ body {
     align-items: center;
 }
 
-.top-left { grid-area: top-left; }
-.top-right { grid-area: top-right; }
-.bottom-left { grid-area: bottom-left; }
-.bottom-right { grid-area: bottom-right; }
-.center { grid-area: center; }
+.top-left {
+    grid-area: top-left;
+}
+
+.top-right {
+    grid-area: top-right;
+}
+
+.bottom-left {
+    grid-area: bottom-left;
+}
+
+.bottom-right {
+    grid-area: bottom-right;
+}
+
+.center {
+    grid-area: center;
+}
 
 .reveal {
     opacity: 0;
@@ -675,6 +676,7 @@ body {
         opacity: 0;
         transform: translateY(40px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -683,16 +685,14 @@ body {
 
 /* ===== Section Tarifs ===== */
 .tarifs {
-    min-height: 100vh;
-    min-width: 100vw;
-    padding: 60px 20px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
     background: var(--light-bg);
     display: flex;
     align-items: center;
     justify-content: center;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    flex-shrink: 0;
+    /* scroll-snap removed */
 }
 
 .pricing-grid {
@@ -962,6 +962,7 @@ body {
         opacity: 0;
         transform: translateX(-50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -973,6 +974,7 @@ body {
         opacity: 0;
         transform: translateX(50px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -980,9 +982,12 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -1046,11 +1051,12 @@ body {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .container {
-        flex-wrap: wrap; /* Sur mobile on autorise le wrap */
+        flex-wrap: wrap;
+        /* Sur mobile on autorise le wrap */
     }
-    
+
     body {
         /* Sur mobile, on repasse en vertical si besoin, ou on adapte le scroll horizontal */
     }

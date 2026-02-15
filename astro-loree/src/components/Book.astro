@@ -1,0 +1,51 @@
+---
+---
+
+<div class="book-container">
+    <div id="book">
+        <slot />
+    </div>
+</div>
+
+<script>
+    import { PageFlip } from 'page-flip';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const bookEl = document.getElementById('book');
+        if (!bookEl) return;
+
+        const pageFlip = new PageFlip(bookEl, {
+            width: 550, // base page width
+            height: 733, // base page height
+            size: 'stretch',
+            // set threshold values:
+            minWidth: 315,
+            maxWidth: 1001,
+            minHeight: 420,
+            maxHeight: 1350,
+            maxShadowOpacity: 0.5, // Half shadow intensity
+            showCover: true,
+            mobileScrollSupport: false // disable content scrolling on mobile
+        });
+
+        const pages = document.querySelectorAll('.page');
+        pageFlip.loadFromHTML(pages);
+
+        // Expose pageFlip instance for navigation controls
+        window.pageFlip = pageFlip;
+    });
+</script>
+
+<style>
+    .book-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #f5f5f5; /* Background behind the book */
+        overflow: hidden;
+    }
+
+    /* Pages will be styled by the library, but we can add default styles here */
+</style>
