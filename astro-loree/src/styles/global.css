@@ -33,38 +33,136 @@ body {
     overflow: hidden;
 }
 
+/* Page Flip Styles */
+.page {
+    background-color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
 .page-content {
     height: 100%;
     width: 100%;
     overflow-y: auto;
-    /* Enable scrolling for long content */
-    padding: 20px;
+    padding: 40px;
 }
 
-.page {
-    background-color: white;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Couverture du magazine */
-.magazine-cover {
-    position: absolute;
-    top: 50%;
-    display: grid;
+/* Restored Section Styles (Adapted) */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     width: 100%;
-    padding-left: 4em;
+    position: relative;
+    color: white;
+    overflow: hidden;
 }
 
 .hero-background {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    z-index: 0;
 }
 
 .hero-background img {
     width: 100%;
     height: 100%;
-    object-fit: none;
-    object-position: -150px 58%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.4) 0%, rgba(42, 42, 42, 0.2) 100%);
+    z-index: 1;
+}
+
+.magazine-cover {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ffffff 0%, #C49A6C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Presentation */
+.presentation {
+    height: 100%;
+    background: var(--light-bg);
+}
+
+.presentation h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Tarifs */
+.tarifs {
+    height: 100%;
+    background: white;
+}
+
+.pricing-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.pricing-card {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+/* Utility classes from original CSS */
+.text-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Animation classes */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 20px;
+    }
 }
