@@ -215,7 +215,6 @@ body {
 
 .features-list {
     list-style: none;
-    margin: 20px 0;
     border-top: 2px solid var(--light-bg);
     padding-top: 15px;
 }
