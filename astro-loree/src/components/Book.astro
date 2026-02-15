@@ -15,14 +15,14 @@
         if (!bookEl) return;
 
         const pageFlip = new PageFlip(bookEl, {
-            width: 600, // spread: 1200
-            height: 900, 
+            width: 550, // base page width
+            height: 700, // reduced to fit landscape screens
             size: 'stretch',
             // set threshold values:
             minWidth: 315,
-            maxWidth: 1200,
+            maxWidth: 1000,
             minHeight: 420,
-            maxHeight: 1200,
+            maxHeight: 1000,
             maxShadowOpacity: 0.5,
             showCover: true,
             mobileScrollSupport: true 
