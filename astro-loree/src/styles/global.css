@@ -18,6 +18,34 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--dark-bg);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.page-content {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    /* Enable scrolling for long content */
+    padding: 20px;
+}
+
+.page {
+    background-color: white;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Couverture du magazine */
 .magazine-cover {
     position: absolute;

@@ -16,7 +16,7 @@
 
         const pageFlip = new PageFlip(bookEl, {
             width: 550, // base page width
-            height: 733, // base page height
+            height: 800, // increased height
             size: 'stretch',
             // set threshold values:
             minWidth: 315,
@@ -25,7 +25,7 @@
             maxHeight: 1350,
             maxShadowOpacity: 0.5, // Half shadow intensity
             showCover: true,
-            mobileScrollSupport: false // disable content scrolling on mobile
+            mobileScrollSupport: true // allow touch scroll on content
         });
 
         const pages = document.querySelectorAll('.page');
