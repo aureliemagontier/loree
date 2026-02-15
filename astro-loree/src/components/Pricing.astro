@@ -1,8 +1,18 @@
 ---
 import { PricingModel } from '../models/PricingModel';
 
+interface Props {
+    planIndices?: number[];
+    showFAQ?: boolean;
+}
+
+const { planIndices, showFAQ = true } = Astro.props;
 const pricingModel = new PricingModel();
-const plans = pricingModel.getAll();
+let plans = pricingModel.getAll();
+
+if (planIndices) {
+    plans = plans.filter((_, index) => planIndices.includes(index));
+}
 ---
 
 <section id="tarifs" class="tarifs">
@@ -27,26 +37,28 @@ const plans = pricingModel.getAll();
             ))}
         </div>
 
-        <div class="faq-section">
-            <h3>Questions Fréquentes</h3>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>Puis-je combiner les packs ?</h4>
-                    <p>Absolument ! Formules sur mesure selon vos besoins.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Consultation gratuite ?</h4>
-                    <p>Oui ! Premier rendez-vous pour comprendre votre projet.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Délais ?</h4>
-                    <p>2 à 8 semaines selon le pack et la complexité.</p>
-                </div>
-                <div class="faq-item">
-                    <h4>Frais cachés ?</h4>
-                    <p>Non, tarifs transparents et clairs dès le départ.</p>
+        {showFAQ && (
+            <div class="faq-section">
+                <h3>Questions Fréquentes</h3>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>Puis-je combiner les packs ?</h4>
+                        <p>Absolument ! Formules sur mesure selon vos besoins.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Consultation gratuite ?</h4>
+                        <p>Oui ! Premier rendez-vous pour comprendre votre projet.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Délais ?</h4>
+                        <p>2 à 8 semaines selon le pack et la complexité.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Frais cachés ?</h4>
+                        <p>Non, tarifs transparents et clairs dès le départ.</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        )}
     </div>
 </section>

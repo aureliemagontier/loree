@@ -33,10 +33,17 @@ import Book from '../components/Book.astro';
             </div>
         </div>
 
-        <!-- Page 4: Pricing -->
+        <!-- Page 4: Pricing - Part 1 -->
         <div class="page">
             <div class="page-content">
-                <Pricing />
+                <Pricing planIndices={[0, 1]} showFAQ={false} />
+            </div>
+        </div>
+
+        <!-- Page 5: Pricing - Part 2 -->
+        <div class="page">
+            <div class="page-content">
+                <Pricing planIndices={[2]} showFAQ={true} />
             </div>
         </div>
 
