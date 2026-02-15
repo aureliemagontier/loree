@@ -17,3 +17,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Couverture du magazine */
+.magazine-cover {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    width: 100%;
+    padding-left: 4em;
+}
+
+.hero-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: none;
+    object-position: -150px 58%;
+}
