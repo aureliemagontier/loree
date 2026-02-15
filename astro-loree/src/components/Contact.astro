@@ -32,7 +32,70 @@ const details = contactModel.getDetails();
                     </div>
                 </div>
             </div>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd823Q0D61pF8nzfHhUkrYaM4_OgPIVPaGzHEpeWyrLQY1ing/viewform?embedded=true" width="640" height="2376" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Votre email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta-button">Envoyer le message</button>
+                <div id="form-status" class="form-status"></div>
+            </form>
         </div>
     </div>
 </section>
+
+<script>
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // UI Update
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            formStatus.textContent = '';
+            formStatus.className = 'form-status';
+
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // Remplacer l'URL ci-dessous par l'URL de ton Web App Google Apps Script
+                const SCRIPT_URL = 'TON_URL_SCRIPT_GOOGLE_ICI';
+                
+                if (SCRIPT_URL === 'TON_URL_SCRIPT_GOOGLE_ICI') {
+                    throw new Error("L'URL du script n'est pas encore configurée.");
+                }
+
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Nécessaire pour Google Script
+                    body: JSON.stringify(data)
+                });
+
+                // Comme mode est 'no-cors', on ne peut pas lire la réponse, 
+                // on assume que ça a marché si le fetch n'a pas crashé
+                formStatus.textContent = 'Message envoyé avec succès ! Merci.';
+                formStatus.classList.add('success');
+                contactForm.reset();
+            } catch (error) {
+                console.error('Erreur:', error);
+                formStatus.textContent = "Erreur lors de l'envoi. " + error.message;
+                formStatus.classList.add('error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
+</script>

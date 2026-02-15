@@ -253,9 +253,143 @@ body {
     }
 }
 
+/* ===== Section Contact ===== */
+.contact {
+    height: 100%;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #E8F5E9 100%);
+    color: var(--text-dark);
+}
+
+.contact .section-title {
+    color: var(--text-dark);
+    margin-bottom: 30px;
+}
+
+.contact .section-title::after {
+    background: var(--primary-color);
+}
+
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+    font-size: 30px;
+    min-width: 40px;
+}
+
+.contact-item h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.contact-item p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Contact Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    border-left: 8px solid var(--primary-color);
+}
+
+.form-group {
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--light-bg);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fdfdfd;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 10px rgba(121, 182, 216, 0.1);
+}
+
+.contact-form .cta-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-form .cta-button:hover {
+    background: var(--dark-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-status {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+.form-status.success {
+    color: #27ae60;
+}
+
+.form-status.error {
+    color: #e74c3c;
+}
+
 /* Responsive fixes */
 @media (max-width: 768px) {
     .page-content {
         padding: 20px;
+    }
+
+    .contact-info {
+        flex-direction: column;
     }
 }
