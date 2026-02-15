@@ -14,15 +14,17 @@
         const bookEl = document.getElementById('book');
         if (!bookEl) return;
 
+        const isMobile = window.innerWidth < 768;
+        const initialHeight = isMobile ? 800 : 500;
+
         const pageFlip = new PageFlip(bookEl, {
-            width: 550, // base page width
-            height: 500, // reduced to fit landscape screens
+            width: 550, 
+            height: initialHeight,
             size: 'stretch',
-            // set threshold values:
             minWidth: 315,
             maxWidth: 1000,
             minHeight: 420,
-            maxHeight: 600,
+            maxHeight: isMobile ? 1200 : 600,
             maxShadowOpacity: 0.5,
             showCover: true,
             mobileScrollSupport: true 
