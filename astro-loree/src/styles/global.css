@@ -166,6 +166,31 @@ body {
     margin-bottom: 20px;
 }
 
+/* Hero CTA Button */
+.hero-content .cta-button,
+#accueil .cta-button {
+    background-color: #F5EBC8 !important;
+    color: var(--text-dark) !important;
+    border: none !important;
+    padding: 16px 40px !important;
+    border-radius: 50px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(245, 235, 200, 0.4) !important;
+    margin-top: 20px !important;
+}
+
+.hero-content .cta-button:hover,
+#accueil .cta-button:hover {
+    background-color: #f0e0b0 !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(245, 235, 200, 0.6) !important;
+}
+
 /* Presentation */
 .presentation {
     height: 100%;
