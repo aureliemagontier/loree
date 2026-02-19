@@ -150,6 +150,32 @@ body {
     width: 100%;
 }
 
+.magazine-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    margin-bottom: 14px;
+
+    /* Encadré style magazine */
+    border: 2px solid #C49A6C;
+    outline: 1px solid rgba(196, 154, 108, 0.4);
+    outline-offset: 3px;
+
+    background: rgba(26, 26, 26, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    /* Typographie */
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #C49A6C;
+
+    /* Finition */
+    box-shadow: 0 0 12px rgba(196, 154, 108, 0.2);
+}
+
 .hero-title {
     font-size: 3rem;
     font-weight: 900;
