@@ -20,21 +20,6 @@ export class PricingModel {
     constructor() {
         this.plans = [
             {
-                name: "L'Orée Connexion",
-                price: "450€",
-                frequency: "/mois",
-                subtitle: "Community Management Professionnel",
-                features: [
-                    { text: "Community Management", included: true },
-                    { text: "4 posts/semaine", included: true },
-                    { text: "Modération réseaux", included: true },
-                    { text: "Statistiques mensuelles", included: true }
-                ],
-                isFeatured: false,
-                buttonText: "Sélectionner",
-                buttonStyle: 'secondary'
-            },
-            {
                 name: "L'Orée Web",
                 price: "2000€",
                 subtitle: "Site Web Complet & Professionnel",
